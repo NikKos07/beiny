@@ -1,16 +1,9 @@
     spring:
       datasource:
         driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://192.168.7.62:5432/beauty_login_master
+        url: jdbc:postgresql://localhost:5432/beauty_login_master
         username: postgres
         password: "njhufibrb"
-      jpa:
-        properties:
-          hibernate:
-            dialect: org.hibernate.dialect.PostgreSQL95Dialect
-            show_sql: true
-            temp:
-              use_jdbc_metadata_defaults: false
 
 
 

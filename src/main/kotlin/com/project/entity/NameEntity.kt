@@ -4,15 +4,15 @@ import jakarta.persistence.*
 
 
 @Entity
-@Table(name = "master")
+@Table(name ="master")
 class NameEntity (
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Int = 0,
     val lastname: String = "",
     val firstname: String = "",
+    val email: String = "",
     val age: Int = 0,
     val passw: String = "",
-    val email: String = "",
     val profession: String = "",
 )

@@ -1,8 +1,8 @@
 package com.project.service
 
-import com.project.datatransobj.NameDataTransObj
+import com.project.datatransobj.NameDto
 
 interface NameService {
 
-        fun getAll(): List<NameDataTransObj>
+        fun getAll(): List<NameDto>
 }
