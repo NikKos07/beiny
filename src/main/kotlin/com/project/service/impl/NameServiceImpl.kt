@@ -4,6 +4,7 @@ import com.project.datatransobj.NameDto
 import com.project.entity.NameEntity
 import com.project.repository.NameRepository
 import com.project.service.NameService
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 
 @Service
@@ -11,12 +12,24 @@ class NameServiceImpl(private val nameRepository: NameRepository, ) : NameServic
 
     override fun getAll(): List<NameDto> {
         return nameRepository.findAll()
-            .map {it.toDataTransObj()
+            .map {it.toDto()
             }
 
     }
 
-    private fun NameEntity.toDataTransObj(): NameDto =
+    override fun findById(id: Int): NameDto {
+        return nameRepository.findByIdOrNull(id)
+            ?.toDto()
+            //Если запись не найден, выводится нот фаунд. Код ниже.
+            ?: throw RuntimeException("Имя не найдено")
+    }
+
+
+    override fun search(prefix: String): List<NameDto> =
+        nameRepository.findByNameStartsWithIgnoreCaseOrderByName(prefix)
+    .map { it.toDto() }
+
+    private fun NameEntity.toDto(): NameDto =
         NameDto(
             id = this.id,
             firstname = this.firstname,
@@ -27,3 +40,4 @@ class NameServiceImpl(private val nameRepository: NameRepository, ) : NameServic
             profession = this.profession,
         )
 }
+
