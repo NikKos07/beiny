@@ -22,7 +22,6 @@ class NameServiceImpl(
     override fun findById(id: Int): NameDto {
         return nameRepository.findByIdOrNull(id)
             ?.toDto()
-            //Если запись не найден, выводится нот фаунд. Код ниже.
             ?: throw RuntimeException("Имя не найдено")
     }
 
