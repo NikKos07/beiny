@@ -8,7 +8,9 @@ import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 
 @Service
-class NameServiceImpl(private val nameRepository: NameRepository, ) : NameService{
+class NameServiceImpl(
+    private val nameRepository: NameRepository,
+) : NameService {
 
     override fun getAll(): List<NameDto> {
         return nameRepository.findAll()
@@ -21,6 +23,12 @@ class NameServiceImpl(private val nameRepository: NameRepository, ) : NameServic
         return nameRepository.findByIdOrNull(id)
             ?.toDto()
             //Если запись не найден, выводится нот фаунд. Код ниже.
+            ?: throw RuntimeException("Имя не найдено")
+    }
+
+    override fun getById(id: Int): NameDto {
+        return nameRepository.findByIdOrNull(id)
+            ?.toDto()
             ?: throw RuntimeException("Имя не найдено")
     }
 

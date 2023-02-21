@@ -20,7 +20,7 @@ class NameController(private val nameService: NameService,) {
 //Для запроса пишем путь .../"любой id". Строчка кода ниже.
         @GetMapping("/{id}")
         fun getById(@PathVariable("id") id: Int): NameDto =
-                nameService.findById(id)
+                nameService.getById(id)
 
 
         @GetMapping("/search")

@@ -9,5 +9,8 @@ interface NameService {
 
         fun findById(id:Int): NameDto
 
+        fun getById(id:Int): NameDto
+
         fun search(prefix: String): List<NameDto>
+
 }
