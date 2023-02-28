@@ -6,6 +6,7 @@ import com.project.repository.NameRepository
 import com.project.service.NameService
 import org.springframework.stereotype.Service
 
+
 @Service
 class NameServiceImpl(private val nameRepository: NameRepository ) : NameService{
 
