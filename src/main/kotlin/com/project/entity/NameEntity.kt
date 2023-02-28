@@ -7,7 +7,7 @@ import jakarta.persistence.*
 @Table(name ="master")
 class NameEntity (
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int = 0,
     val lastname: String = "",
     val firstname: String = "",

@@ -1,30 +1,24 @@
 package com.project.controller
-
 import com.project.datatransobj.NameDto
 import com.project.service.NameService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 
 @RestController
 @RequestMapping("/name")
-class NameController(private val nameService: NameService,) {
+class NameController(private val nameService: NameService) {
 
 
         @GetMapping
         fun getAll(): List<NameDto> = nameService.getAll()
 
-//Для запроса пишем путь .../"любой id". Строчка кода ниже.
-        @GetMapping("/{id}")
-        fun getById(@PathVariable("id") id: Int): NameDto =
-                nameService.getById(id)
+        @PostMapping
+        fun registerMaster(@RequestBody dto: NameDto): Int {
+                 return nameService.registerMaster(dto)
+        }
 
 
-        @GetMapping("/search")
-        fun searchName(@RequestParam("prefix") prefix: String): List<NameDto> =
-                nameService.search(prefix)
+
+
 
         }
