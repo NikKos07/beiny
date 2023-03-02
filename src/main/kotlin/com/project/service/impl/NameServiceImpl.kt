@@ -33,6 +33,7 @@ class NameServiceImpl(private val nameRepository: NameRepository ) : NameService
             age = this.age,
             passw = this.passw,
             profession = this.profession,
+            phone = this.phone
         )
 
     private fun NameDto.toEntity(): NameEntity =
@@ -43,6 +44,7 @@ class NameServiceImpl(private val nameRepository: NameRepository ) : NameService
             email = this.email,
             age = this.age,
             passw = this.passw,
-            profession = this.profession
+            profession = this.profession,
+            phone = this.phone
         )
 }

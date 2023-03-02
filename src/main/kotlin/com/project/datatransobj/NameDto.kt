@@ -8,4 +8,5 @@ data class NameDto(
         val age: Int,
         val passw: String,
         val profession: String,
+        val phone:Long,
 )

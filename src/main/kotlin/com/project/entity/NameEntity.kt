@@ -15,4 +15,5 @@ class NameEntity (
     val age: Int = 0,
     val passw: String = "",
     val profession: String = "",
+    val phone:Long = 7
 )
